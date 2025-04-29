@@ -1165,3 +1165,15 @@ ul.icons {
 	.pc {display: block;}
 
 	}/*追加指定ここまで*/
+
+
+/*カスタマイズで追加したもの
+---------------------------------------------------------------------------*/
+  .highlight {
+    background: linear-gradient(transparent 70%, #fffacd 70%);
+    font-weight: bold;
+  }
+
+  .section-heading {
+    margin-top: 2em;
+  }
