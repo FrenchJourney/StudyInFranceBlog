@@ -341,7 +341,7 @@ a.ddmenu::before {
     position: sticky;	/*画面の上部にメニューが固定される*/
     top: 0;
     z-index: 2;
-    transition: opacity 0.3s;
+
 }
 
 /*メニューブロック全体の設定*/
