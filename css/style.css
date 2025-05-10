@@ -15,15 +15,15 @@
 
 /*テンプレート専用cssファイルの読み込み
 ---------------------------------------------------------------------------*/
-@import url("slide.css");
-@import url("inview.css");
+@import url("https://frenchjourney.github.io/StudyInFranceBlog/css/slide.css");
+@import url("https://frenchjourney.github.io/StudyInFranceBlog/css/inview.css");
 
 
 /*CSSカスタムプロパティ（サイト全体を一括管理する為の設定）
 ---------------------------------------------------------------------------*/
 :root {
 
-	--primary-color: #ad9568;			/*テンプレートのメインまたはアクセントとなる色*/
+	--primary-color: #4ba3fc;			/*テンプレートのメインまたはアクセントとなる色*/
 	--primary-inverse-color: #fff;		/*primary-colorの対として使う色*/
 
 	--global-space: 5vw;	/*サイト内の余白の一括管理用。画面幅100%＝100vwです。*/
@@ -59,8 +59,8 @@ body {
 	-webkit-text-size-adjust: none;
 	background: #fff;	/*背景色*/
 	color: #333;		/*文字色*/
-	line-height: 1.5;		/*行間*/
-
+	line-height: 2;		/*行間*/
+	animation: opa1 0.2s 0.5s both;	/*0.5秒待機後、0.2秒かけてフェードイン表示*/
 }
 
 /*リセット*/
@@ -294,7 +294,7 @@ address.margin-top-reset {margin-top: 0;}
 
 /*メニューブロック初期設定
 ---------------------------------------------------------------------------*/
-#menubar {opacity: 1;line-height: 1.5;}
+#menubar {opacity: 0;line-height: 1.5;}
 #menubar ul {list-style: none;margin: 0;padding: 0;}
 
 .large-screen #menubar {opacity: 1;}
@@ -341,7 +341,7 @@ a.ddmenu::before {
     position: sticky;	/*画面の上部にメニューが固定される*/
     top: 0;
     z-index: 2;
-
+    transition: opacity 0.3s;
 }
 
 /*メニューブロック全体の設定*/
@@ -857,21 +857,47 @@ ul.icons {
 ---------------------------------------------------------------------------*/
 /*お知らせブロック*/
 .new {
+	background: rgba(0,0,0,0.02);	/*背景色。0,0,0は黒のことで0.02は色が2%出た状態。*/
 	overflow: hidden;
 	margin-bottom: 4rem;	/*ブロックの下に空けるスペース。4文字分。*/
 }
 
+/*奇数行目を背景色を少し濃くする。全体同じ色がよければここの数行は削除。*/
+.new dt:nth-of-type(odd),
+.new dd:nth-of-type(odd) {
+	background: rgba(0,0,0,0.04);
+}
 
 /*日付(dt)設定*/
 .new dt {
-	padding: 0.5rem 1rem 0;	/*dt内の余白。上、左右、下への順番。*/
+	padding: 1rem 1rem 0;	/*dt内の余白。上、左右、下への順番。*/
 }
 
 /*記事(dd)設定*/
 .new dd {
-	padding: 0.5rem;	/*dd内の余白*/
+	padding: 1rem;	/*dd内の余白*/
 }
 
+/*ブロック内のspan。日付の横のアイコン的な部分の共通設定*/
+.new dt span {
+	display: inline-block;
+	text-align: center;
+	line-height: 1.8;		/*行間（アイコンの高さ）*/
+	border-radius: 3px;		/*角を丸くする指定*/
+	padding: 0 0.5rem;		/*上下、左右へのブロック内の余白*/
+	width: 8rem;			/*幅。8文字分。*/
+	transform: scale(0.8);	/*80%のサイズに縮小*/
+	background: #fff;		/*背景色*/
+	color:#777;				/*文字色*/
+	border: 1px solid #999;	/*枠線の幅、線種、色*/
+}
+
+/*icon-bg1*/
+.new .icon-bg1 {
+	background: var(--primary-color);	/*背景色。css冒頭で指定しているprimary-colorを読み込みます*/
+	color: var(--primary-inverse-color);	/*文字色。css冒頭で指定しているprimary-inverse-colorを読み込みます*/
+	border-color: transparent;			/*枠線を出したくないので透明にする*/
+}
 
 	/*画面幅700px以上の追加指定*/
 	@media screen and (min-width:700px) {
@@ -884,12 +910,12 @@ ul.icons {
 
 	/*日付(dt)設定*/
 	.new dt {
-		padding: 0.5rem 0 0.5rem 2rem;	/*dt内の余白。上、右、下、左への順番。*/
+		padding: 1rem 0 1rem 2rem;	/*dt内の余白。上、右、下、左への順番。*/
 	}
 
 	/*記事(dd)設定*/
 	.new dd {
-		padding: 0.5rem 2rem 0.5rem 1rem;	/*dd内の余白。上、右、下、左への順番。*/
+		padding: 1rem 2rem 1rem 0;	/*dd内の余白。上、右、下、左への順番。*/
 	}
 
 	}/*追加指定ここまで*/
@@ -1177,3 +1203,4 @@ ul.icons {
   .section-heading {
     margin-top: 2em;
   }
+
