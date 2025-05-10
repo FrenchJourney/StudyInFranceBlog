@@ -294,7 +294,7 @@ address.margin-top-reset {margin-top: 0;}
 
 /*メニューブロック初期設定
 ---------------------------------------------------------------------------*/
-#menubar {opacity: 0;line-height: 1.5;}
+#menubar {opacity: 1;line-height: 1.5;}
 #menubar ul {list-style: none;margin: 0;padding: 0;}
 
 .large-screen #menubar {opacity: 1;}
