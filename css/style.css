@@ -1204,3 +1204,10 @@ ul.icons {
     margin-top: 2em;
   }
 
+.label {
+  font-weight: bold;
+  color: #fff;
+  background-color: #4ba3fc;
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+}
